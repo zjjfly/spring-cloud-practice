@@ -1,0 +1,23 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server1
+    prefer-ip-address: true
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: false #在开发环境设置为false可以避免服务因为self preservation而无法删除
+      #    renewal-percent-threshold: 0.49 #生产环境调小这个值以提高触发self preservation的门槛
+    #    expected-client-renewal-interval-seconds: 10 #生产环境调小这个值以提高触发self preservation的门槛
+#    eviction-interval-timer-in-ms: 5000 # 减小这个值可以及时清除下线的服务
+    #    response-cache-auto-expiration-in-seconds: 60
+#    use-read-only-response-cache: false # 设置成false可以避免由于缓存导致服务通知下线server的接口的返回信息中仍有这个服务

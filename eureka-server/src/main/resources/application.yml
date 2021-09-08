@@ -1,0 +1,8 @@
+eureka:
+  server:
+    peer-eureka-nodes-update-interval-ms: 10000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
